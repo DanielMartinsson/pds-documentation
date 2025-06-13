@@ -1,0 +1,24 @@
+#macro(encodeXML $value)$!writer.encodeXML($value)#end
+<?xml version="1.0" encoding="utf-8"?>
+
+<report>
+    <header>
+        <docName>#encodeXML($!model.docName)</docName>
+        <date>#encodeXML($!model.date)</date>
+    </header>
+    <pn>
+    #foreach ($attr in $model.PN.attributeNames)
+        <$config.getTag($attr)>#encodeXML($!model.PN.get($attr))</$config.getTag($attr)>
+    #end
+    </pn>
+    <parts>
+    #foreach ($part in $model.parts)
+        <part>
+        #foreach ($attr in $part.attributeNames)
+            <$config.getTag($attr)>#encodeXML($!part.get($attr))</$config.getTag($attr)>
+        #end
+        </part>
+    #end
+    </parts>
+
+</report>

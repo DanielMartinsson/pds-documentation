@@ -1,0 +1,69 @@
+[versions]
+hamcrest = "3.0"
+jacoco = "0.8.13"
+jmockit = "1.49"
+junit = "4.13.2"
+
+lombok = "1.18.38"
+
+windchill = "13.0.2.3"
+
+velocity = "2.3"
+
+commons-text = "1.11.0"
+
+[libraries]
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+
+hamcrest = { module = "org.hamcrest:hamcrest", version.ref = "hamcrest" }
+jacoco-agent = { module = "org.jacoco:org.jacoco.agent", version.ref = "jacoco" }
+jacoco-cli = { module = "org.jacoco:org.jacoco.cli", version.ref = "jacoco" }
+jmockit = { module = "org.jmockit:jmockit", version.ref = "jmockit" }
+junit = { module = "junit:junit", version.ref = "junit" }
+
+velocity = { module = "org.apache.velocity:velocity-engine-core", version.ref = "velocity"}
+
+commons-text = { module = "org.apache.commons:commons-text", version.ref = "commons-text" }
+
+net-frameworkcore = { module = "de.netag.windchill.framework:NET-FrameworkCore", version = "3-2025.05.30.23.43" }
+
+net-autodoc = { module = "de.netag.windchill.products:NET-AutoDoc", version = "3-2025.05.27.14.25" }
+net-fixoldversionstate = { module = "de.netag.windchill.products:NET-FixOldVersionState", version = "3-2023.06.21.21.51" }
+net-keyinspector = { module = "de.netag.windchill.products:NET-KeyInspector", version = "3-2025.03.03.16.04" }
+net-namesynchronizer = { module = "de.netag.windchill.products:NET-NameSynchronizer", version = "3-2024.12.13.11.34" }
+net-participantsvalidator = { module = "de.netag.windchill.products:NET-ParticipantsValidator", version = "3-2024.11.12.16.38" }
+net-promotionattributetransfer = { module = "de.netag.windchill.products:NET-PromotionAttributeTransfer", version = "3-2025.05.16.10.21" }
+net-promotionstructurecheck = { module = "de.netag.windchill.products:NET-PromotionStructureCheck", version = "3-2024.10.23.09.41" }
+net-resetattributetrigger = { module = "de.netag.windchill.products:NET-ResetAttributeTrigger", version = "3-2024.11.15.10.58" }
+
+net-attributedelegater = { module = "de.netag.windchill.tools:NET-AttributeDelegater", version = "3-2022.01.18.16.10" }
+net-changemanagement = { module = "de.netag.windchill.tools:NET-ChangeManagement", version = "3-2024.09.26.16.22" }
+net-commandlinetools = { module = "de.netag.windchill.tools:NET-CommandLineTools", version = "3-2025.04.10.14.37" }
+
+windchill-annotations = { module = "com.ptc.windchill:windchill-srclib-tool-Annotations", version.ref = "windchill" }
+windchill-codebase = { module = "com.ptc.windchill:windchill-codebase", version.ref = "windchill" }
+windchill-ieThirdParty = { module = "com.ptc.windchill:windchill-webinf-lib-ie3rdpartylibs", version.ref = "windchill" }
+windchill-ieWeb = { module = "com.ptc.windchill:windchill-webinf-lib-ieWeb", version.ref = "windchill" }
+windchill-install = { module = "com.ptc.windchill:windchill-webinf-lib-install", version.ref = "windchill" }
+windchill-odata = { module = "com.ptc.windchill:windchill-webinf-lib-odataWeb", version.ref = "windchill" }
+windchill-servlet = { module = "com.ptc.windchill:windchill-lib-servlet", version.ref = "windchill" }
+windchill-wcThirdParty = { module = "com.ptc.windchill:windchill-webinf-lib-wc3rdpartylibs", version.ref = "windchill" }
+windchill-wnc = { module = "com.ptc.windchill:windchill-lib-wnc", version.ref = "windchill" }
+windchill-wncWeb = { module = "com.ptc.windchill:windchill-webinf-lib-wncWeb", version.ref = "windchill" }
+
+
+
+[bundles]
+windchill = [
+    "windchill-annotations", "windchill-codebase", "windchill-ieThirdParty",
+    "windchill-ieWeb", "windchill-install", "windchill-odata",
+    "windchill-servlet", "windchill-wcThirdParty", "windchill-wnc",
+    "windchill-wncWeb"]
+
+net-framework = ["net-frameworkcore"]
+net-products = ["net-autodoc", "net-fixoldversionstate", "net-keyinspector",
+    "net-namesynchronizer", "net-participantsvalidator", "net-promotionattributetransfer",
+    "net-promotionstructurecheck", "net-resetattributetrigger"]
+net-tools = ["net-attributedelegater", "net-changemanagement", "net-commandlinetools"]
+
+testing = ["hamcrest", "jacoco-agent", "jacoco-cli", "junit", "jmockit"]

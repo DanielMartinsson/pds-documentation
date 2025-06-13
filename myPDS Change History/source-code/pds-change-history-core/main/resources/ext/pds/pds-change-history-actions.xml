@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE listofactions SYSTEM "actions.dtd">
+
+<listofactions>
+
+    <objecttype name="pds-ch" resourceBundle="ext.pds.changehistory.actionsRB">
+        <action name="reportWizard" ajax="page" model="promotion request row actions" beforeAction="view">
+            <command class="com.ptc.core.components.forms.DefaultObjectFormProcessor"
+                     method="execute" windowType="popup"
+                     url="netmarkets/jsp/ext/pds/changehistory/reportWizard.jsp" />
+        </action>
+        <action name="reportWizardStep">
+            <command url="netmarkets/jsp/ext/pds/changehistory/reportWizardStep.jsp" windowType="wizard_step"/>
+        </action>   
+    </objecttype>
+  
+</listofactions>

@@ -1,0 +1,19 @@
+#!groovy
+@Library('my-shared-library') _
+
+buildPdsCcdDeployment([
+    'branchesRegEx': ['.*'], // list of regular expressions for branches that will get built, usually something like: ['.*', 'main']
+    'redmine'      : [
+        'branches'     : ['main'], // list of branches that should be released to redmine, usually something like: ['main']
+        'projectId'    : '', // the project id in redmine
+        'pdsCcdPackage': true, // if the PDSVISION CCD package should be released to redmine
+        'ptcCcdPackage': false, // if the PTC CCD package should be released to redmine
+    ],
+    'publish'      : [
+        'branches': ['main'], // list of branches that should be published to nexus, usually something like: ['main']
+    ],
+    'sonarqube'    : [
+        // if the pipeline should be aborted if sonarqube finds errors
+        'abortPipeline': false
+    ],
+])

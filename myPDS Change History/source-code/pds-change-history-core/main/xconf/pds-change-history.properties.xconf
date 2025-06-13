@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Configuration
+        SYSTEM "xconf.dtd">
+<Configuration>
+
+    <!--Register action-->
+    <AddToProperty name="com.ptc.netmarkets.util.misc.defaultActions"
+                   value="/ext/pds/pds-change-history-actions.xml"/>
+
+    <Service context="default" name="com.ptc.windchill.uwgm.proesrv.c11n.ModeledAttributesDelegate"
+             targetFile="codebase/service.properties">
+        <Option cardinality="singleton" order="0" overridable="true"
+                requestor="java.lang.Object"
+                serviceClass="ext.pds.changehistory.ChangeHistoryModeledAttributesDelegate"/>
+    </Service>
+
+    <!-- Properties related to the Release history on the drawing -->
+    <!-- The internal iba name that holds the release date info -->
+    <Property name="ext.changeHistory.ibaReleasedDate" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="PDS_CHANGE_HISTORY_RELEASE_DATE"/>
+
+    <!-- The internal iba name that holds the release by user info -->
+    <Property name="ext.changeHistory.ibaReleasedBy" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="PDS_CHANGE_HISTORY_RELEASED_BY"/>
+
+    <!-- The internal iba name that stores the release description -->
+    <Property name="ext.changeHistory.ibaReleaseDesc" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="PDS_CHANGE_HISTORY_SHORT_REASON"/>
+
+    <!-- The internal iba name that stores the concatenated release info -->
+    <Property name="ext.changeHistory.ibaReleaseInfo" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="PDS_CHANGE_HISTORY_RELEASE_INFO"/>
+
+    <!-- Release info report properties-->
+    <Property name="ext.changeHistory.ibaReason" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="PDS_CHANGE_HISTORY_REASON"/>
+
+    <Property name="ext.changeHistory.ibaShortReason" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="$(ext.changeHistory.ibaReleaseDesc)"/>
+
+    <Property name="ext.changeHistory.ibaReasonSource" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="PDS_CHANGE_HISTORY_REASON_SOURCE"/>
+
+    <Property name="ext.changeHistory.ibaImpactToExistingParts" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="PDS_CHANGE_HISTORY_IMPACT_TO_EXISTING_PARTS"/>
+
+    <Property name="ext.changeHistory.ibaInfoService" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="PDS_CHANGE_HISTORY_INFO_SERVICE"/>
+
+    <Property name="ext.changeHistory.ibaInfoMarketing" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="PDS_CHANGE_HISTORY_INFO_MARKETING"/>
+
+
+    <!-- The max number of release events that will be maintained and added
+         to EPMDocuments -->
+    <Property name="ext.changeHistory.max" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="8"/>
+
+    <!-- Controls the format of the release date added to CAD parameter
+         Is by default set to wt.epm.attributes.dateFormat which controls
+         all ootb date values -->
+    <Property name="ext.changeHistory.dateFormat" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="$(wt.epm.attributes.dateFormat)"/>
+
+    <!-- Controls which state a CN has when it is resolved. OOTB state is RESOLVED -->
+    <Property name="ext.changeHistory.resolvedCNState" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="RESOLVED"/>
+
+    <!-- controls the names on the index parameter added to the CAD files -->
+    <Property name="ext.changeHistory.ch_index.parameter" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="CHANGED_INDEX_"/>
+
+    <!-- controls the names on the description parameter added to the CAD files -->
+    <Property name="ext.changeHistory.ch_desc.parameter" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="CHANGED_INFO_"/>
+
+    <!-- controls the names on the date parameter added to the CAD files -->
+    <Property name="ext.changeHistory.ch_date.parameter" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="CHANGED_DATE_"/>
+
+    <!-- controls the names on the user parameter added to the CAD files -->
+    <Property name="ext.changeHistory.ch_user.parameter" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="CHANGED_BY_"/>
+
+    <!-- controls if only specific a subtypes and it's childern should get
+         parameters added. If left empty all EPMDocument types will be used -->
+    <Property name="ext.changeHistory.epmdoctype" overridable="true"
+              targetFile="codebase/wt.properties"
+              default=""/>
+
+    <!-- Controls which document categories parameters should be added to -->
+    <Property name="ext.changeHistory.docType" overridable="true"
+              targetFile="codebase/wt.properties"
+              default="CADDRAWING"/>
+
+
+
+</Configuration>
